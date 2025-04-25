@@ -10,22 +10,72 @@
       text-align: center;
       background-color: #f9f9f9;
       padding: 40px;
+      position: relative;
+      overflow: hidden;
     }
+
     h1 {
       font-size: 2.5em;
       margin-bottom: 40px;
       color: #333;
+      position: relative;
+      z-index: 2;
     }
+
     img {
       max-width: 90%;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Animierte Kreise */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: float 20s infinite linear;
+      z-index: 1;
+    }
+
+    .circle1 {
+      width: 200px;
+      height: 200px;
+      background: #89CFF0;
+      top: 10%;
+      left: -150px;
+      animation-delay: 0s;
+    }
+
+    .circle2 {
+      width: 300px;
+      height: 300px;
+      background: #FFB6C1;
+      bottom: 10%;
+      right: -200px;
+      animation-delay: 5s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+      50% {
+        transform: translateX(50px) rotate(180deg);
+      }
+      100% {
+        transform: translateX(0) rotate(360deg);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Alles Töfte bei dir? ;D</h1>
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+
+  <h1>Hier ist mein Bild:</h1>
   <img src="bild.jpg" alt="Mein Bild">
 </body>
 </html>
